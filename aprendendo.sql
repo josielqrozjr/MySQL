@@ -44,10 +44,10 @@ alter table pessoas
 drop profissao; -- Excluir a coluna escolhida, o column está implícito
 
 alter table pessoas
-add profissao varchar(10) after sexo;
+add profissao varchar(10) after sexo; -- Adicionar depois da coluna definida
 
 alter table pessoas
-add profissao varchar(10) not null default'' first;
+add profissao varchar(10) not null default'' first; -- Adicionar como primeira coluna
 
 
 
