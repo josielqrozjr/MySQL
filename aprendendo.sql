@@ -16,3 +16,14 @@ nacionalidade varchar(30) default 'Brasil', /* Com o default 'Brasil' será cada
 											dentro do default caso não seja preenchido no cadastro */
 primary key (id) /* Chave primária do id */
 ) default charset = utf8mb4; /* Permite os caracteres especiais nessa tabela */
+
+/* insert into pessoas -> Esse comando insere dados na tabela escolhida
+(nome, nascimento, sexo, peso, altura, nacionalidade) -> Não preciso inserir se ordem dos dados
+da linha abaixo são a mesma e então da forma abaixo: */
+
+insert into pessoas values -- DML: Data Manipulation Language
+(default, 'João', '2000-11-13', 'M', '75.8', '1.60', 'Estados Unidos'), -- Assim é possível inserir
+(default, 'Pedro', '2019-12-3', 'M', '20', '1.01', 'Portugal'), -- vários dados/valores na tabela escolhida
+(default, 'Jhuly', '2015-1-25', 'F', '20', '1.01', 'França'); -- default: inserir o padrão definido
+
+select * from pessoas; -- Mostrar os dados cadastrados na tabela escolhida
