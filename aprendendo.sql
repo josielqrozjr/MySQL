@@ -27,3 +27,35 @@ insert into pessoas values -- DML: Data Manipulation Language
 (default, 'Jhuly', '2015-1-25', 'F', '20', '1.01', 'França'); -- default: inserir o padrão definido
 
 select * from pessoas; -- Mostrar os dados cadastrados na tabela escolhida
+
+use cadastro; -- Comando para selecionar/usar o banco de dados escolhido
+describe pessoas; -- Descreva/mostre pessoas ou -> desc pessoas;
+
+/* ALTERANDO A TABELA */
+
+alter table pessoas -- alterar a tabela escolhida
+add column profissao varchar(10); -- adicionar uma coluna com o nome e tipos escolhidos
+/* Pode omitir o column -> add nomeColuna tipo;
+-> É adicionado ao final da tabela
+-> Para as pessoas já cadastradas os novos campos são colocados como nulos, pois foram cadastradas
+antes da criação das novas colunas -> CUIDADO AO ADICIONAR! */
+
+alter table pessoas
+drop profissao; -- Excluir a coluna escolhida, o column está implícito
+
+alter table pessoas
+add profissao varchar(10) after sexo;
+
+alter table pessoas
+add profissao varchar(10) not null default'' first;
+
+
+
+
+
+
+
+
+
+
+
