@@ -75,6 +75,44 @@ add id int first; -- Adicionar id na primeira coluna
 alter table cursos
 add primary key (id); -- Adicionar no id a constrange PK
 
+drop table endereco; -- Apagar TODA a tabela e seus dados
+
+/* MODIFICAR DADOS DAS LINHAS NA TABELA */
+
+insert into cursos values
+('1', 'HTML4', 'Curso de HTML5', '40', '37', '2014'),
+ ('2','Algoritimos','Logica de Programação','20','8','2014'),
+ ('3','Photoshop','Aulas de Photoshop CC','9','20','2014'),
+ ('4','PGP','PHP para Iniciantes','33','40','2010'),
+ ('5','Jarva','Intro ao Java','22','10','2000'),
+ ('6','MySQL','Curso MySQL','21','15','2016'),
+ ('7','World','Word Completo','40','30','2018'),
+ ('8','Sapateado','Dança Rítimica','14','30','2018'),
+ ('9','Cozinha Árabe','Aprenda a fazer Kibe','40','30','2018'),
+ ('10','YouTuber','Gerar Polêmicas e Ganhar Inscritos','5','2','2010');
+ 
+ select * from cursos;
+ 
+ update cursos -- Atualize nomeTabela
+ set nome = 'HTML5' -- Configure nomeDadoLinha igual a valorNovo
+ where id = '1'; -- Onde a PK é igual numeroDaPK
+ 
+ update cursos
+ set nome = 'PHP', ano = '2015' -- Modificar dois registros na mesma linha
+ where id = '4';
+ 
+ update cursos
+ set nome = 'Java', ano = '2015', carga = '40' -- Modificar dois registros na mesma linha
+ where id = '5'
+ limit 1; -- Limita a ação dessa estrutura a apenas uma linha, sendo uma medida de precaução caso altere uma linha errada
+ 
+ delete from cursos
+ where id = '8'; -- Apagar a linha onde o nome é igual ao valor dado
+ 
+ truncate table endereco; -- Apagar TODOS os dados da tabela, mas mantém a tabela
+ 
+ 
+
 
 
 
