@@ -49,6 +49,12 @@ add profissao varchar(10) after sexo; -- Adicionar depois da coluna definida
 alter table pessoas
 add profissao varchar(10) not null default'' first; -- Adicionar como primeira coluna
 
+alter table endereco
+modify rua varchar(50) after cep; -- Modificar apenas o tipo primitivo e as constranges
+
+alter table endereco
+change logradoura logradouro varchar(15); -- Serve para renomear a coluna e é necessário inserir novamente o tipo primitivo e as constranges
+
 
 
 
