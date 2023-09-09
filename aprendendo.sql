@@ -111,6 +111,7 @@ insert into cursos values
  
  truncate table endereco; -- Apagar TODOS os dados da tabela, mas mantém a tabela
  
+ drop database aunimal; -- Apagar TODO o banco de dados
  
 
 
