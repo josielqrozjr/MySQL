@@ -21,6 +21,8 @@ primary key (id) /* Chave primária do id */
 (nome, nascimento, sexo, peso, altura, nacionalidade) -> Não preciso inserir se ordem dos dados
 da linha abaixo são a mesma e então da forma abaixo: */
 
+/* INSERINDO/CADASTRANDO DADOS NA TABELA */
+
 insert into pessoas values -- DML: Data Manipulation Language
 (default, 'João', '2000-11-13', 'M', '75.8', '1.60', 'Estados Unidos'), -- Assim é possível inserir
 (default, 'Pedro', '2019-12-3', 'M', '20', '1.01', 'Portugal'), -- vários dados/valores na tabela escolhida
@@ -29,9 +31,10 @@ insert into pessoas values -- DML: Data Manipulation Language
 select * from pessoas; -- Mostrar os dados cadastrados na tabela escolhida
 
 use cadastro; -- Comando para selecionar/usar o banco de dados escolhido
-describe pessoas; -- Descreva/mostre pessoas ou -> desc pessoas;
+describe cursos; -- Descreva/mostre pessoas ou -> desc pessoas;
 
 /* ALTERANDO A TABELA */
+-- Estruturas para modificar colunas
 
 alter table pessoas -- alterar a tabela escolhida
 add column profissao varchar(10); -- adicionar uma coluna com o nome e tipos escolhidos
@@ -54,6 +57,24 @@ modify rua varchar(50) after cep; -- Modificar apenas o tipo primitivo e as cons
 
 alter table endereco
 change logradoura logradouro varchar(15); -- Serve para renomear a coluna e é necessário inserir novamente o tipo primitivo e as constranges
+
+-- Estrutura para modificar a própria tabela
+alter table pessoas rename to clientes; -- Renomear o nome da tabela inteira -> Podemos digitar assim também os comandos
+
+create table if not exists cursos (
+nome varchar(100) not null unique, -- O nome do será único, porém não é uma PK
+descricao text, -- Textos longos
+carga int unsigned, -- Não permite valores negativos
+totaulas int unsigned,
+ano year default '2016' -- Estrutura para ano
+) default charset = utf8mb4;
+
+alter table cursos
+add id int first; -- Adicionar id na primeira coluna
+
+alter table cursos
+add primary key (id); -- Adicionar no id a constrange PK
+
 
 
 
